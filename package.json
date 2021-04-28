@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
+    "dev": "adonis serve --dev --debug",
     "start": "node server.js",
     "test": "node ace test",
     "commit:cz": "exec < /dev/tty && git cz --hook || true"
