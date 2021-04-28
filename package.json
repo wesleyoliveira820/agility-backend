@@ -5,8 +5,10 @@
   "description": "Sistema de gerenciamento de tarefas no modelo kanban",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "start": "node server.js",
-    "test": "node ace test"
+    "test": "node ace test",
+    "commit:cz": "exec < /dev/tty && git cz --hook || true"
   },
   "keywords": [
     "adonisjs",
@@ -30,8 +32,17 @@
     "@adonisjs/ignitor": "^2.0.8",
     "@adonisjs/lucid": "^6.1.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^6.0.0"
+  },
   "autoload": {
     "App": "./app"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
