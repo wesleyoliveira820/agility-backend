@@ -40,9 +40,9 @@ jobs:
         with:
           source: ".env.example"
           target: ".env"
-        run: chmod -R 777 .env
 
       - name: Generating App Key
+        run: chmod -R 777 .env
         run: adonis key:generate
 
       - name: Eslint Check
