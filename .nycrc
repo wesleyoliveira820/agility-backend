@@ -1,0 +1,14 @@
+{
+  "all": true,
+  "include": [
+    "app/**/*.js"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "**/Exceptions/**",
+    "**/*.spec.js"
+  ],
+  "check-coverage": true,
+  "report-dir": "./test/coverage",
+  "temp-dir": "./test/.nyc_output"
+}

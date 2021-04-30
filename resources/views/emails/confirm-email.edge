@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+  <div id="background-container">
+    <img src="https://i.ibb.co/584Pcn2/logo.png" alt="Agility">
+    <div id="modal-container">
+      <div id="content">
+        <h4 id="title">Olá, {{ name }}!</h4>
+        <p class="paragraph-content">
+          Falta pouco para você começar a aproveitar oque nossa plataforma pode oferecer,
+          para isso clique no botão abaixo para confirmar seu email.
+        </p>
+        <a
+          href="http://localhost:3000/confirm-account?code={{verification_code}}"
+        >
+        <button type="button" id="button-confirm-email">
+          Confirmar email
+        </button>
+        </a>
+        <p class="paragraph-content" id="second-paragraph">
+          Caso o botão não funcione você também poderá acessar o link abaixo.
+        </p>
+        <a
+          href="http://localhost:3000/confirm-account?code={{verification_code}}"
+          id="link-confirm-email"
+        >
+          http://localhost:3000/confirm-account?code={{verification_code}}
+        </a>
+        <footer>
+          <p class="paragraph-content">Atenciosamente,</p>
+          <p class="paragraph-content">Equipe Agility</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F5F8FA;
+    }
+
+    div#background-container {
+      background-color: #279AF1;
+      width: 100%;
+      height: 232px;
+      padding: 32px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div#modal-container {
+      max-width: 600px;
+      width: 100%;
+      padding: 32px 16px;
+      background-color: #FFFFFF;
+      margin: 32px auto;
+      border: 1px solid #D4D6D9;
+      border-radius: 5px;
+    }
+
+    div#content {
+      margin: auto;
+      text-align: center;
+      max-width: 456px;
+      width: 100%;
+    }
+
+    h4#title {
+      font-size: 28px;
+      font-family: Roboto, sans-serif;
+      font-weight: 500;
+      color: #333333;
+      margin-bottom: 24px;
+    }
+
+    p.paragraph-content {
+      color: #333333;
+      font-size: 16px;
+      line-height: 24px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    p#second-paragraph {
+      margin-bottom: 16px;
+    }
+
+    button#button-confirm-email {
+      max-width: 256px;
+      width: 100%;
+      height: 44px;
+      background-color: #279AF1;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 700;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin: 32px 0;
+    }
+
+    button#button-confirm-email:hover {
+      background-color: #0284E5;
+    }
+
+    a#link-confirm-email {
+      font-size: 16px;
+      color: #279AF1;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    @media (max-width: 480px) {
+      div#modal-container {
+        padding: 24px 16px;
+      }
+
+      h4#title {
+        font-size: 21px;
+        margin-bottom: 16px;
+      }
+
+      p.paragraph-content {
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      button#button-confirm-email {
+        margin: 24px 0;
+      }
+
+      a#link-confirm-email {
+        font-size: 14px;
+      }
+    }
+  </style>
+</body>
+</html>

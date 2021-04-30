@@ -9,10 +9,14 @@
     "dev": "adonis serve --dev --debug",
     "start": "node server.js",
     "test": "node ace test",
+    "eslint": "eslint --fix .",
+    "coverage": "nyc --reporter=lcov --reporter=text node ace test",
     "commit:cz": "exec < /dev/tty && git cz --hook || true"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix ."]
+    "*.js": [
+      "eslint --fix ."
+    ]
   },
   "keywords": [
     "adonisjs",
@@ -34,7 +38,13 @@
     "@adonisjs/fold": "^4.0.9",
     "@adonisjs/framework": "^5.0.9",
     "@adonisjs/ignitor": "^2.0.8",
-    "@adonisjs/lucid": "^6.1.3"
+    "@adonisjs/lucid": "^6.1.3",
+    "@adonisjs/mail": "^3.1.0",
+    "@adonisjs/validator": "^5.1.0",
+    "@adonisjs/vow": "^1.0.17",
+    "@rocketseat/adonis-bull": "^0.2.5",
+    "pg": "^8.6.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "commitizen": "^4.2.3",
@@ -43,7 +53,8 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "husky": "^6.0.0",
-    "lint-staged": "^10.5.4"
+    "lint-staged": "^10.5.4",
+    "nyc": "^15.1.0"
   },
   "autoload": {
     "App": "./app"
