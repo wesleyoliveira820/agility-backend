@@ -42,8 +42,7 @@ jobs:
           target: ".env"
 
       - name: Generating App Key
-        run: chmod -R 777 .env
-        run: adonis key:generate
+        run: chmod -R 777 .env && adonis key:generate
 
       - name: Eslint Check
         run: yarn eslint
