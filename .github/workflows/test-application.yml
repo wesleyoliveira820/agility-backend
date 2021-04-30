@@ -45,7 +45,7 @@ jobs:
         run: adonis key:generate
 
       - name: Eslint Check
-          run: yarn eslint
+        run: yarn eslint
 
       - name: Run Tests
         run: yarn coverage
