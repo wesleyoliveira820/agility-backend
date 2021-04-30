@@ -24,13 +24,10 @@ jobs:
           postgres_db: agility_test
           exposed_postgres_port: 5432
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Install AdonisJS CLI
-        run: npm install -g @adonisjs/cli
 
       - name: Install Dependencies
         run: yarn --production=false
