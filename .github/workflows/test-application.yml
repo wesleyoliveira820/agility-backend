@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     steps:
-       - name: Init
+      - name: Init
         uses: actions/checkout@v2
 
       - name: Setup PostgresSQL ${{ matrix.postgres-version }}
