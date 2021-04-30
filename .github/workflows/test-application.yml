@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     steps:
-       - name: Init
+      - name: Init
         uses: actions/checkout@v2
 
       - name: Setup PostgresSQL ${{ matrix.postgres-version }}
@@ -42,10 +42,10 @@ jobs:
           target: ".env"
 
       - name: Generating App Key
-        run: adonis key:generate
+        run: chown -R $USER:$USER .env && adonis key:generate
 
       - name: Eslint Check
-          run: yarn eslint
+        run: yarn eslint
 
       - name: Run Tests
         run: yarn coverage
