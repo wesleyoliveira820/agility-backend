@@ -1,0 +1,45 @@
+name: Test Application
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: ['ubuntu-latest']
+        node-version: ['12.x']
+        postgres-version: ['12-alpine']
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Init
+        uses: actions/checkout@v2
+
+      - name: Setup PostgresSQL ${{ matrix.postgres-version }}
+        uses: Daniel-Marynicz/postgresql-action@master
+        with:
+          postgres_image_tag: ${{ matrix.postgres-version }}
+          postgres_user: postgres
+          postgres_password: docker
+          postgres_db: agility_test
+          exposed_postgres_port: 5432
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: yarn --production=false
+
+      - name: Create .env
+        uses: canastro/copy-file-action@master
+        with:
+          source: ".env.example"
+          target: ".env"
+
+      - name: Eslint Check
+        run: yarn eslint
+
+      - name: Run Tests
+        run: yarn coverage

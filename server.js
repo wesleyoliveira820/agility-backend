@@ -3,5 +3,6 @@ const fold = require('@adonisjs/fold');
 
 new Ignitor(fold)
   .appRoot(__dirname)
+  .preLoad('preloads/bull')
   .fireHttpServer()
   .catch(console.error);

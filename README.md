@@ -1,28 +1,45 @@
-# Adonis API application
+<div align="center">
+  <img src="./.github/assets/logo.svg" height="100"/>
+</div>
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+<p align="center">Backend de um sistema de gerenciamento de tarefas no modelo kanban.</p>
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+<div align="center">
+  <img src="https://img.shields.io/github/issues/wesleyoliveira820/agility-backend" />
+  <img src="https://img.shields.io/github/forks/wesleyoliveira820/agility-backend" />
+  <img src="https://img.shields.io/github/stars/wesleyoliveira820/agility-backend" />
+  <img src="https://img.shields.io/github/license/wesleyoliveira820/agility-backend" />
+</div>
 
-## Setup
+<h4 align="center">
+  🚧  Agility 🚀 Em construção...  🚧
+</h4>
 
-Use the adonis command to install the blueprint
+## Sobre
+Neste repositório contém o backend de um sistema de gerenciamento de tarefas no modelo kanban inspirado no [Trello](https://trello.com) e [Azure Boards](https://azure.microsoft.com/pt-br/services/devops/boards/).
 
-```bash
-adonis new yardstick --api-only
-```
+### Preview
 
-or manually clone the repo and then run `npm install`.
+* [Protótipo no Figma](https://www.figma.com/file/HyHtd5RPjX6usHCKnFWCLl/Agility?node-id=240%3A50)
 
+### Funcionalidades
 
-### Migrations
+- [x] Cadastro de usuários
+- [ ] Verificação de email
+- [ ] Login
+- [ ] Recuperação de senha
+- [ ] CRUD de projetos
+- [ ] CRUD de membros
+- [ ] CRUD de listas
+- [ ] CRUD de cards
 
-Run the following command to run startup migrations.
+### Tecnologias utilizadas (Até o momento)
 
-```js
-adonis migration:run
-```
+* [Node.JS](https://nodejs.org/en/)
+* [AdonisJS](https://adonisjs.com/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Redis](https://redis.io/)
+
+## Instalação
+
+  🚧  Em breve tutorial de instalação  🚧
