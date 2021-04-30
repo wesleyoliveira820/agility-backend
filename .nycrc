@@ -10,5 +10,6 @@
   ],
   "check-coverage": true,
   "report-dir": "./test/coverage",
-  "temp-dir": "./test/.nyc_output"
+  "temp-dir": "./test/.nyc_output",
+  "lines": 85
 }

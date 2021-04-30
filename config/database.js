@@ -8,10 +8,10 @@ module.exports = {
     client: 'pg',
     connection: {
       host: Env.get('DB_HOST', 'localhost'),
-      port: Env.get('DB_PORT', ''),
-      user: Env.get('DB_USER', 'root'),
+      port: Env.get('DB_PORT', '', 5432),
+      user: Env.get('DB_USER', 'postgres'),
       password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis'),
+      database: Env.get('DB_DATABASE', 'agility'),
     },
     debug: Env.get('DB_DEBUG', false),
   },
