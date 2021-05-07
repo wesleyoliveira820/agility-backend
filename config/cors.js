@@ -1,5 +1,5 @@
 module.exports = {
-  origin: false,
+  origin: true,
   methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE'],
   headers: true,
   exposeHeaders: false,
