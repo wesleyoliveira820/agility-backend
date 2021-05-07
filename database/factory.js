@@ -7,5 +7,7 @@ Factory.blueprint('App/Models/User', (faker, i, data) => ({
   name: faker.name(),
   email: faker.email(),
   password: faker.string({ length: 8 }),
+  verified_account: false,
+  verification_code: faker.integer({ min: 11111111, max: 99999999 }),
   ...data,
 }));
