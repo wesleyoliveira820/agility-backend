@@ -23,6 +23,7 @@ UserHook.sendEmailConfirmationAccount = async (modelInstance) => {
     name: firstname,
     email,
     verification_code,
+    app_url: Env.get('CLIENT_URL'),
   };
 
   Bull.add(Job.key, payloadData);

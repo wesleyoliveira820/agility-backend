@@ -16,7 +16,7 @@
           para isso clique no botão abaixo para confirmar seu email.
         </p>
         <a
-          href="http://localhost:3000/confirm-account?code={{verification_code}}"
+          href="{{ app_url }}/confirm-account?code={{verification_code}}"
         >
         <button type="button" id="button-confirm-email">
           Confirmar email
@@ -26,10 +26,10 @@
           Caso o botão não funcione você também poderá acessar o link abaixo.
         </p>
         <a
-          href="http://localhost:3000/confirm-account?code={{verification_code}}"
+          href="{{ app_url }}/confirm-account?code={{verification_code}}"
           id="link-confirm-email"
         >
-          http://localhost:3000/confirm-account?code={{verification_code}}
+          {{ app_url }}/confirm-account?code={{verification_code}}
         </a>
         <footer>
           <p class="paragraph-content">Atenciosamente,</p>
