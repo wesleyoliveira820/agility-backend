@@ -39,6 +39,12 @@ jobs:
       - name: Install Dependencies
         run: yarn --production=false
 
+      - name: Create .env
+        uses: canastro/copy-file-action@master
+        with:
+          source: ".env.example"
+          target: ".env"
+
       - name: Eslint Check
         run: yarn eslint
 
