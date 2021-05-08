@@ -26,7 +26,7 @@ Neste repositório contém o backend de um sistema de gerenciamento de tarefas n
 
 - [x] Cadastro de usuários
 - [x] Verificação de email
-- [ ] Login
+- [x] Login
 - [ ] Recuperação de senha
 - [ ] CRUD de projetos
 - [ ] CRUD de membros
