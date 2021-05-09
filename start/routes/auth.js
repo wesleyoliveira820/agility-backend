@@ -6,4 +6,6 @@ Route.group(() => {
 
   Route.post('forgot-password', 'ForgotPasswordController.store')
     .validator('StoreForgotPassword');
+
+  Route.put('reset-password', 'ResetPasswordController.update').validator('UpdatePassword');
 }).prefix('auth');
