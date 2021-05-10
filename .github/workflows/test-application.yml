@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Init
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup PostgresSQL ${{ matrix.postgres-version }}
         uses: Daniel-Marynicz/postgresql-action@master
@@ -57,6 +59,7 @@ jobs:
         run: yarn coverage
         env:
           APP_KEY: ${{ secrets.APP_KEY }}
+          CI: true
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
