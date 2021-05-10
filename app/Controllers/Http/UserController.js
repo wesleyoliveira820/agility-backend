@@ -8,7 +8,7 @@ class UserController {
   async store({ request, response }) {
     const data = request.only(['name', 'email', 'password']);
 
-    const verification_code = createCode();
+    const verification_code = await createCode();
 
     await User.create({
       id: uuidV4(),

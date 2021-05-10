@@ -25,7 +25,7 @@ class ForgotPasswordController {
       });
     }
 
-    const verification_code = createCode();
+    const verification_code = await createCode();
 
     await ForgotPassword.create({
       id: uuidV4(),
