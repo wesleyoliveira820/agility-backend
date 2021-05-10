@@ -5,6 +5,9 @@
 <p align="center">Backend de um sistema de gerenciamento de tarefas no modelo kanban.</p>
 
 <div align="center">
+  <img src="https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg" height="20" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=wesleyoliveira820_agility-backend&metric=security_rating" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=wesleyoliveira820_agility-backend&metric=coverage" />
   <img src="https://img.shields.io/github/issues/wesleyoliveira820/agility-backend" />
   <img src="https://img.shields.io/github/forks/wesleyoliveira820/agility-backend" />
   <img src="https://img.shields.io/github/stars/wesleyoliveira820/agility-backend" />
@@ -27,7 +30,7 @@ Neste repositório contém o backend de um sistema de gerenciamento de tarefas n
 - [x] Cadastro de usuários
 - [x] Verificação de email
 - [x] Login
-- [ ] Recuperação de senha
+- [X] Recuperação de senha
 - [ ] CRUD de projetos
 - [ ] CRUD de membros
 - [ ] CRUD de listas

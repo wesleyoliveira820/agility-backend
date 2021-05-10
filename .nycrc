@@ -6,6 +6,7 @@
   "exclude": [
     "**/node_modules/**",
     "**/Exceptions/**",
+    "**/app/Models/Hooks/**",
     "**/*.spec.js"
   ],
   "check-coverage": true,

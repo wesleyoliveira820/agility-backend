@@ -9,3 +9,5 @@ yarn-error.log
 test/.nyc_output
 
 test/coverage
+
+.scannerwork
