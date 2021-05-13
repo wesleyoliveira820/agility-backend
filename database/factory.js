@@ -8,13 +8,19 @@ Factory.blueprint('App/Models/User', (faker, i, data) => ({
   email: faker.email(),
   password: faker.string({ length: 8 }),
   verified_account: false,
-  verification_code: faker.integer({ min: 11111111, max: 99999999 }),
+  verification_code: faker.hash({ length: 16 }),
   ...data,
 }));
 
 Factory.blueprint('App/Models/ForgotPassword', (faker, i, data) => ({
   id: uuidV4(),
   user_id: data.user_id,
-  verification_code: faker.integer({ min: 11111111, max: 99999999 }),
+  verification_code: faker.hash({ length: 16 }),
+  ...data,
+}));
+
+Factory.blueprint('App/Models/Project', (faker, i, data) => ({
+  title: faker.string(),
+  description: faker.sentence({ words: 5 }),
   ...data,
 }));

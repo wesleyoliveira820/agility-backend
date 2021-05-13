@@ -23,6 +23,8 @@ test('should return user information with a JWT code', async ({ assert, client }
   assert.exists(response.body.token);
 
   assert.exists(response.body.user);
+
+  assert.hasAllKeys(response.body.user, ['id', 'name', 'email', 'initial_name', 'color_name']);
 });
 
 test('should fail when trying to login with the wrong password', async ({ client }) => {
