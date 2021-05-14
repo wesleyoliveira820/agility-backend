@@ -2,6 +2,15 @@
 const Role = use('App/Models/Role');
 
 class ProjectController {
+  async index({ response, auth }) {
+    const projects = await auth.user.projects()
+      .select('id', 'title', 'description')
+      .orderByRaw('user_projects.created_at DESC')
+      .fetch();
+
+    return response.status(200).send(projects);
+  }
+
   async store({ request, response, auth }) {
     const data = request.only(['title', 'description']);
 
