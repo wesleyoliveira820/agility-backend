@@ -17,11 +17,26 @@ class LoginController {
       });
     }
 
-    const { token } = await auth.attempt(email, password);
+    const { token, refreshToken: refresh_token } = await auth
+      .withRefreshToken()
+      .attempt(email, password);
 
     user.verified_account = undefined;
 
-    return response.status(200).send({ user, token });
+    return response.status(200).send({ user, token, refresh_token });
+  }
+
+  async update({ request, response, auth }) {
+    const refreshToken = request.input('refresh_token');
+
+    const {
+      token,
+      refreshToken: refresh_token,
+    } = await auth
+      .newRefreshToken()
+      .generateForRefreshToken(refreshToken, true);
+
+    return response.status(200).send({ token, refresh_token });
   }
 }
 

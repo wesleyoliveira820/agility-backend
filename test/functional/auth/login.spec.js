@@ -22,6 +22,8 @@ test('should return user information with a JWT code', async ({ assert, client }
 
   assert.exists(response.body.token);
 
+  assert.isNotNull(response.refresh_token);
+
   assert.exists(response.body.user);
 
   assert.hasAllKeys(response.body.user, ['id', 'name', 'email', 'initial_name', 'color_name']);

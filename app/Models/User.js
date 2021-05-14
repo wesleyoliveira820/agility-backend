@@ -26,6 +26,10 @@ class User extends Model {
     });
   }
 
+  tokens() {
+    return this.hasMany('App/Models/Token');
+  }
+
   projectJoins() {
     return this.hasMany('App/Models/UserProject');
   }
