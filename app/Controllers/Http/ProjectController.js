@@ -1,5 +1,6 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Role = use('App/Models/Role');
+const formatMessage = use('App/Helpers/ResponseValidatorFormatter');
 
 class ProjectController {
   async index({ response, auth }) {
@@ -20,10 +21,10 @@ class ProjectController {
       .first();
 
     if (projectTitleAlreadyExists) {
-      return response.status(409).send([{
-        field: 'title',
-        message: 'Já existe um projeto com este título',
-      }]);
+      return response.status(409).send(formatMessage(
+        'title',
+        'Já existe um projeto com este título.',
+      ));
     }
 
     const projectPayload = {

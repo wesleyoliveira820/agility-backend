@@ -14,6 +14,8 @@
   <img src="https://img.shields.io/github/license/wesleyoliveira820/agility-backend" />
 </div>
 
+<p align="center">Você pode ver o repositório frontend do projeto clicando <a href="https://github.com/wesleyoliveira820/agility-frontend">aqui</a></p>
+
 <h4 align="center">
   🚧  Agility 🚀 Em construção...  🚧
 </h4>
@@ -21,17 +23,13 @@
 ## Sobre
 Neste repositório contém o backend de um sistema de gerenciamento de tarefas no modelo kanban inspirado no [Trello](https://trello.com) e [Azure Boards](https://azure.microsoft.com/pt-br/services/devops/boards/).
 
-### Preview
-
-* [Protótipo no Figma](https://www.figma.com/file/HyHtd5RPjX6usHCKnFWCLl/Agility?node-id=240%3A50)
-
 ### Funcionalidades
 
 - [x] Cadastro de usuários
 - [x] Verificação de email
 - [x] Login
 - [X] Recuperação de senha
-- [ ] CRUD de projetos
+- [x] CRUD de projetos (Criar, Listar)
 - [ ] CRUD de membros
 - [ ] CRUD de listas
 - [ ] CRUD de cards

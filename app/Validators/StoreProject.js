@@ -7,7 +7,7 @@ class StoreProject {
 
   get messages() {
     return {
-      'title.required': 'Título é um campo obrigatório.',
+      'title.required': '"Título" é um campo obrigatório.',
     };
   }
 }

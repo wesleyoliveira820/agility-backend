@@ -5,19 +5,7 @@ class EmailVerificationController {
   async update({ request, response }) {
     const { code } = request.all();
 
-    if (!code) {
-      return response.status(400).send({
-        message: '"code" is required.',
-      });
-    }
-
-    const user = await User.findBy('verification_code', code);
-
-    if (!user) {
-      return response.status(404).send({
-        message: 'This code not exists.',
-      });
-    }
+    const user = await User.findByOrFail('verification_code', code);
 
     user.verified_account = true;
 
@@ -25,7 +13,9 @@ class EmailVerificationController {
 
     await user.save();
 
-    return response.status(200).send();
+    return response.status(200).send({
+      message: 'Conta verificada com sucesso! Você já pode fazer login!',
+    });
   }
 }
 
