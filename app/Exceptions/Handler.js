@@ -8,15 +8,21 @@ class ExceptionHandler extends BaseExceptionHandler {
       return response.status(error.status).send(error.messages);
     }
 
-    if (Env.get('NODE_ENV') === 'development' || Env.get('NODE_ENV') === 'testing') {
+    const environment = Env.get('NODE_ENV');
+
+    if (environment === 'development' || environment === 'testing') {
       const youch = new Youch(error, request.request);
       const errorJSON = await youch.toJSON();
 
       return response.status(error.status).send(errorJSON);
     }
 
+    if (error.status !== 500) {
+      return response.status(error.status).send(error.messages);
+    }
+
     return response.status(500).send({
-      message: 'Sorry, there was an internal server error.',
+      message: 'Desculpe, um erro inesperado no servidor ocorreu.',
     });
   }
 }

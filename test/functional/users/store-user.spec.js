@@ -5,7 +5,7 @@ const Factory = use('Factory');
 trait('Test/ApiClient');
 trait('DatabaseTransactions');
 
-test('Deverá criar um novo usuário com sucesso e retornar o status 201', async ({ assert, client }) => {
+test('should create a new user successfully and return the status 201', async ({ assert, client }) => {
   const userPayload = {
     name: 'Jhon Doe',
     email: 'jhondoe@gmail.com',

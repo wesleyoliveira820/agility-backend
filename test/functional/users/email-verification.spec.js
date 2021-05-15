@@ -29,12 +29,6 @@ test("should verify the user's account successfully", async ({ assert, client })
   assert.isNull(createdUser.verification_code);
 });
 
-test('should fail to try to verify an account without sending the code', async ({ client }) => {
-  const response = await client.put('confirm-accounts').end();
-
-  response.assertStatus(400);
-});
-
 test('should fail to try to verify an account whose code does not exist', async ({ client }) => {
   await Factory.model('App/Models/User').create({
     verification_code: null,

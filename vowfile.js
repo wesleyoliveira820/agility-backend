@@ -4,6 +4,7 @@ module.exports = (cli, runner) => {
   runner.before(async () => {
     use('Adonis/Src/Server').listen(process.env.HOST, process.env.PORT);
     await ace.call('migration:run', {}, { silent: true });
+    await ace.call('seed', {}, { silent: true });
   });
 
   runner.after(async () => {

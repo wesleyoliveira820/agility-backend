@@ -1,0 +1,17 @@
+node_modules
+Dockerfile*
+docker-compose*
+README.md
+LICENSE
+.dockerignore
+.git
+.gitignore
+.eslintrc.json
+.editorconfig
+.prettierrc
+sonar-project.properties
+.scannerwork
+.nycrc
+.vscode
+.github
+.husky

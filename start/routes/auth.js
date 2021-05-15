@@ -8,4 +8,6 @@ Route.group(() => {
     .validator('StoreForgotPassword');
 
   Route.put('reset-password', 'ResetPasswordController.update').validator('UpdatePassword');
-}).prefix('auth');
+
+  Route.put('refresh-token', 'LoginController.update');
+}).middleware('guest').prefix('auth');

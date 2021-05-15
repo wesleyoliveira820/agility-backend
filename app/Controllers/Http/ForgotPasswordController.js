@@ -5,6 +5,8 @@ const User = use('App/Models/User');
 const ForgotPassword = use('App/Models/ForgotPassword');
 
 const createCode = use('App/Helpers/CodeGenerator');
+const formatMessage = use('App/Helpers/ResponseValidatorFormatter');
+
 const { v4: uuidV4 } = require('uuid');
 
 class ForgotPasswordController {
@@ -14,15 +16,17 @@ class ForgotPasswordController {
     const user = await User.findBy('email', email);
 
     if (!user) {
-      return response.status(404).send({
-        message: 'This email does not exist.',
-      });
+      return response.status(404).send(formatMessage(
+        'email',
+        'Não há conta cadastrada com este email.',
+      ));
     }
 
     if (!user.verified_account) {
-      return response.status(401).send({
-        message: 'This account has not yet been verified.',
-      });
+      return response.status(401).send(formatMessage(
+        'email',
+        'Este conta ainda não foi verificada.',
+      ));
     }
 
     const verification_code = await createCode();
@@ -34,7 +38,9 @@ class ForgotPasswordController {
     });
 
     return response.status(200).send({
-      message: 'Order sent, check your email.',
+      message:
+        `O link de recuperação foi enviado para seu
+        email. Você pode fechar esta aba.`,
     });
   }
 }

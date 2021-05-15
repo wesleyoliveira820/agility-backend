@@ -19,7 +19,7 @@ class ResetPasswordController {
     // 15 minutes
     if (differenceBetweenMinutes > 15) {
       return response.status(401).send({
-        message: 'This token is expired.',
+        message: 'O link de verificação está expirado.',
       });
     }
 
@@ -31,7 +31,9 @@ class ResetPasswordController {
 
     await token.delete();
 
-    return response.status(200).send();
+    return response.status(200).send({
+      message: 'Senha alterada com sucesso! Você já pode fazer login.',
+    });
   }
 }
 
