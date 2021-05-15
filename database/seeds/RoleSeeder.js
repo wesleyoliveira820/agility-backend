@@ -4,13 +4,13 @@ const { v4: uuidV4 } = require('uuid');
 
 class RoleSeeder {
   async run() {
-    await Role.create({
+    await Role.findOrCreate({ slug: 'admin' }, {
       id: uuidV4(),
       title: 'Admin',
       slug: 'admin',
     });
 
-    await Role.create({
+    await Role.findOrCreate({ slug: 'member' }, {
       id: uuidV4(),
       title: 'Member',
       slug: 'member',
