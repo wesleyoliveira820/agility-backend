@@ -7,6 +7,14 @@ class RoleUserProject extends Model {
 
     this.addHook('beforeCreate', 'SetUuidHook.createUuid');
   }
+
+  project() {
+    return this.belongsTo('App/Models/Project');
+  }
+
+  role() {
+    return this.belongsTo('App/Models/Role');
+  }
 }
 
 module.exports = RoleUserProject;

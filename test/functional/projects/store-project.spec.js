@@ -29,17 +29,13 @@ test('should create a new project and link user with admin', async ({ assert, cl
     .where('id', response.body.id);
 
   const userProject = await Database
-    .from('user_projects')
+    .from('role_user_projects')
     .where('project_id', response.body.id)
     .first();
 
-  const roleUserProject = await Database
-    .from('role_user_projects')
-    .where('user_project_id', userProject.id);
-
   assert.isNotEmpty(project);
 
-  assert.isNotEmpty(roleUserProject);
+  assert.isNotEmpty(userProject);
 });
 
 test('should fail with status 401 when trying create new project without authentication', async ({ client }) => {

@@ -1,15 +1,23 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Role = use('App/Models/Role');
+
 const formatMessage = use('App/Helpers/ResponseValidatorFormatter');
 
 class ProjectController {
   async index({ response, auth }) {
-    const projects = await auth.user.projects()
-      .select('id', 'title', 'description')
-      .orderByRaw('user_projects.created_at DESC')
+    const projects = await auth.user
+      .IParticipateProjects()
+      .orderByRaw('created_at DESC')
+      .with('project', (build) => {
+        build.select('id', 'title', 'description');
+      })
       .fetch();
 
-    return response.status(200).send(projects);
+    const formattedResponse = projects
+      .toJSON()
+      .map(({ project }) => project);
+
+    return response.status(200).send(formattedResponse);
   }
 
   async store({ request, response, auth }) {
@@ -27,26 +35,45 @@ class ProjectController {
       ));
     }
 
-    const projectPayload = {
-      user_id: auth.user.id,
-      ...data,
-    };
-
-    const {
-      id,
-      title,
-      description,
-    } = await auth.user.projects().create(projectPayload);
+    const project = await auth.user.myProjects().create(data);
 
     const roleAdmin = await Role.findBy({ slug: 'admin' });
 
-    const projectJoin = await auth.user.projectJoins()
-      .where('project_id', id)
-      .first();
+    await project.roleUserProjects().create({
+      user_id: auth.user.id,
+      role_id: roleAdmin.id,
+    });
 
-    await projectJoin.roleUserProjects().create({ role_id: roleAdmin.id });
+    const { id, title, description } = project;
 
     return response.status(201).send({ id, title, description });
+  }
+
+  async show({ params, response, auth }) {
+    const projectId = params.id;
+
+    const project = await auth.user.IParticipateProjects()
+      .where('project_id', projectId)
+      .with('project', (build) => {
+        build.select('id', 'title');
+      })
+      .with('role', (build) => {
+        build.select('id', 'slug');
+      })
+      .first();
+
+    if (!project) {
+      return response.status(404).send({
+        message: 'Este projeto não existe.',
+      });
+    }
+
+    const { project: projectInfo, role } = project.toJSON();
+
+    return response.status(200).send({
+      ...projectInfo,
+      my_role: role,
+    });
   }
 }
 

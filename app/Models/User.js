@@ -30,16 +30,12 @@ class User extends Model {
     return this.hasMany('App/Models/Token');
   }
 
-  projectJoins() {
-    return this.hasMany('App/Models/UserProject');
-  }
-
-  projects() {
-    return this.belongsToMany('App/Models/Project').pivotModel('App/Models/UserProject');
+  IParticipateProjects() {
+    return this.hasMany('App/Models/RoleUserProject', 'id', 'user_id');
   }
 
   myProjects() {
-    return this.hasMany('App/Models/Project');
+    return this.hasMany('App/Models/Project', 'id', 'user_id');
   }
 }
 

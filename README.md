@@ -29,7 +29,7 @@ Neste repositório contém o backend de um sistema de gerenciamento de tarefas n
 - [x] Verificação de email
 - [x] Login
 - [X] Recuperação de senha
-- [x] CRUD de projetos (Criar, Listar)
+- [x] CRUD de projetos (Criar, Listar, Mostrar)
 - [ ] CRUD de membros
 - [ ] CRUD de listas
 - [ ] CRUD de cards
