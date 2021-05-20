@@ -30,14 +30,14 @@ Neste repositório contém o backend de um sistema de gerenciamento de tarefas n
 - [x] Login
 - [X] Recuperação de senha
 - [x] CRUD de projetos (Criar, Listar, Mostrar)
-- [ ] CRUD de membros
+- [x] CRUD de membros (Adicionar)
 - [ ] CRUD de listas
 - [ ] CRUD de cards
 
 ### Tecnologias utilizadas (Até o momento)
 
 * [Node.JS](https://nodejs.org/en/)
-* [AdonisJS](https://adonisjs.com/)
+* [AdonisJS V4](https://legacy.adonisjs.com/)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Redis](https://redis.io/)
 

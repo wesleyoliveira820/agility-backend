@@ -7,3 +7,10 @@ Route.resource('projects', 'ProjectController')
   .validator(new Map([
     [['projects.store'], ['StoreProject']],
   ]));
+
+Route.post('invites', 'InviteController.store')
+  .middleware(['auth'])
+  .validator('SendInvite')
+  .middleware(['is:admin']);
+
+Route.post('accept-invites', 'InviteController.accept').middleware(['auth']);

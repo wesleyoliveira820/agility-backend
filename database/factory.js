@@ -24,3 +24,9 @@ Factory.blueprint('App/Models/Project', (faker, i, data) => ({
   description: faker.sentence({ words: 5 }),
   ...data,
 }));
+
+Factory.blueprint('App/Models/Invite', (fake, i, data) => ({
+  project_id: data.project_id,
+  email: data.email,
+  owner_id: data.owner_id,
+}));

@@ -7,6 +7,7 @@ const globalMiddleware = [
 ];
 
 const namedMiddleware = {
+  is: 'App/Middleware/Is',
   auth: 'Adonis/Middleware/Auth',
   guest: 'Adonis/Middleware/AllowGuestOnly',
 };
