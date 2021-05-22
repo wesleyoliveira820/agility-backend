@@ -1,6 +1,6 @@
 {
   "name": "agility-backend",
-  "version": "4.1.0",
+  "version": "1.3.5",
   "adonis-version": "4.1.0",
   "description": "Sistema de gerenciamento de tarefas no modelo kanban",
   "main": "index.js",

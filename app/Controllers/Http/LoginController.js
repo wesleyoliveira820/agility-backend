@@ -38,6 +38,12 @@ class LoginController {
 
     return response.status(200).send({ token, refresh_token });
   }
+
+  async delete({ response, auth }) {
+    await auth.revokeTokensForUser(auth.user, true);
+
+    return response.status(204).send();
+  }
 }
 
 module.exports = LoginController;

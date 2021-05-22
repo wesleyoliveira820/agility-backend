@@ -11,3 +11,5 @@ Route.group(() => {
 
   Route.put('refresh-token', 'LoginController.update');
 }).middleware('guest').prefix('auth');
+
+Route.delete('/logout', 'LoginController.delete').middleware(['auth']);
