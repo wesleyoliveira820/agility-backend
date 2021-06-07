@@ -8,6 +8,10 @@ class Project extends Model {
     this.addHook('beforeCreate', 'SetUuidHook.createUuid');
   }
 
+  lists() {
+    return this.hasMany('App/Models/List');
+  }
+
   roleUserProjects() {
     return this.hasMany('App/Models/RoleUserProject', 'id', 'project_id');
   }

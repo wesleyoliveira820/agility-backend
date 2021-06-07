@@ -14,3 +14,7 @@ Route.post('invites', 'InviteController.store')
   .middleware(['is:admin']);
 
 Route.post('accept-invites', 'InviteController.accept').middleware(['auth']);
+
+Route.post('projects/lists', 'ListProjectController.store')
+  .validator('StoreListProject')
+  .middleware(['auth', 'is:admin,member']);

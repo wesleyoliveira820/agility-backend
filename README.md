@@ -31,7 +31,7 @@ Neste repositório contém o backend de um sistema de gerenciamento de tarefas n
 - [X] Recuperação de senha
 - [x] CRUD de projetos (Criar, Listar, Mostrar)
 - [x] CRUD de membros (Adicionar)
-- [ ] CRUD de listas
+- [x] CRUD de listas (Criar, Listar)
 - [ ] CRUD de cards
 
 ### Tecnologias utilizadas (Até o momento)
