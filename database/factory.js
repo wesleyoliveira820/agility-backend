@@ -30,3 +30,11 @@ Factory.blueprint('App/Models/Invite', (fake, i, data) => ({
   email: data.email,
   owner_id: data.owner_id,
 }));
+
+Factory.blueprint('App/Models/List', (fake, i, data) => ({
+  id: uuidV4(),
+  project_id: data.project_id,
+  title: fake.string(),
+  create_cards: false,
+  ...data,
+}));

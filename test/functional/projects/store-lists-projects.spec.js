@@ -1,6 +1,6 @@
 const { test, trait } = use('Test/Suite')('Store List Project');
 const Factory = use('Factory');
-const Role = use('App/Models/Role');
+const createProjectMock = require('../../mocks/create-user-project.mock');
 
 trait('Test/ApiClient');
 trait('Auth/Client');
@@ -12,16 +12,7 @@ test('should create a new list in a project that the user participates', async (
     verified_account: true,
   });
 
-  const project = await user.myProjects().create({
-    title: 'Project 1',
-  });
-
-  const roleAdmin = await Role.findBy('slug', 'admin');
-
-  await project.roleUserProjects().create({
-    user_id: user.id,
-    role_id: roleAdmin.id,
-  });
+  const project = await createProjectMock(user);
 
   const response = await client.post('projects/lists')
     .loginVia(user)

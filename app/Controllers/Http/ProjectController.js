@@ -63,7 +63,7 @@ class ProjectController {
 
     const project = await auth.user.IParticipateProjects()
       .where('project_id', projectId)
-      .with('project.lists')
+      .with('project.lists.cards')
       .with('project', (build) => {
         build.select('id', 'title');
       })
