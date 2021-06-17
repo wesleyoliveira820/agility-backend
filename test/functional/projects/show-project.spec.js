@@ -27,7 +27,7 @@ test('should return the user`s project information with access level', async ({ 
 
   response.assertStatus(200);
 
-  assert.hasAllKeys(response.body, ['id', 'title', 'my_role']);
+  assert.hasAllKeys(response.body, ['id', 'title', 'lists', 'my_role']);
 });
 
 test('should fail when trying to search for a project that the user does not belong to', async ({ assert, client }) => {

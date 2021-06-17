@@ -1,6 +1,9 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Role = use('App/Models/Role');
 
+/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
+const List = use('App/Models/List');
+
 const formatMessage = use('App/Helpers/ResponseValidatorFormatter');
 
 class ProjectController {
@@ -44,6 +47,12 @@ class ProjectController {
       role_id: roleAdmin.id,
     });
 
+    await List.create({
+      title: 'Tarefas',
+      create_cards: true,
+      project_id: project.id,
+    });
+
     const { id, title, description } = project;
 
     return response.status(201).send({ id, title, description });
@@ -54,6 +63,7 @@ class ProjectController {
 
     const project = await auth.user.IParticipateProjects()
       .where('project_id', projectId)
+      .with('project.lists.cards')
       .with('project', (build) => {
         build.select('id', 'title');
       })
