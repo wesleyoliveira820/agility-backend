@@ -22,8 +22,6 @@ test('should create a new project and link user with admin', async ({ assert, cl
 
   response.assertStatus(201);
 
-  assert.hasAllKeys(response.body, ['id', 'title', 'description']);
-
   const project = await Database
     .from('projects')
     .where('id', response.body.id);

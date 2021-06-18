@@ -4,6 +4,8 @@ const Card = use('App/Models/Card');
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const List = use('App/Models/List');
 
+const Ws = use('Ws');
+
 class CardProjectController {
   async store({ request, response }) {
     const { title, description, project_id } = request.all();
@@ -19,7 +21,17 @@ class CardProjectController {
       list_id: list.id,
     });
 
-    return response.status(201).json(card);
+    const channelPath = `projectRoom:${project_id}`;
+
+    const channel = Ws.getChannel('projectRoom:*');
+
+    const topic = channel.topic(channelPath);
+
+    if (topic) {
+      topic.broadcastToAll('new:card', card);
+    }
+
+    return response.status(201).send();
   }
 }
 
