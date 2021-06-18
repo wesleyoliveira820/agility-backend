@@ -2,6 +2,7 @@
 const List = use('App/Models/List');
 
 const formatMessage = use('App/Helpers/ResponseValidatorFormatter');
+const Ws = use('Ws');
 
 class ListProjectController {
   async store({ request, response }) {
@@ -21,7 +22,17 @@ class ListProjectController {
 
     const list = await List.create({ title, project_id });
 
-    return response.status(201).send(list);
+    const channelPath = `projectRoom:${project_id}`;
+
+    const channel = Ws.getChannel('projectRoom:*');
+
+    const topic = channel.topic(channelPath);
+
+    if (topic) {
+      topic.broadcastToAll('new:list', list);
+    }
+
+    return response.status(201).send();
   }
 }
 

@@ -1,3 +1,5 @@
+const createProjectMock = require('../../mocks/create-user-project.mock');
+
 const { test, trait } = use('Test/Suite')('Member Invite');
 const Factory = use('Factory');
 const Role = use('App/Models/Role');
@@ -12,16 +14,7 @@ test('should create one in the successful project invitation', async ({ assert, 
     verification_code: null,
   });
 
-  const project = await user.myProjects().create({
-    title: 'Test',
-  });
-
-  const roleAdmin = await Role.findBy('slug', 'admin');
-
-  await project.roleUserProjects().create({
-    user_id: user.id,
-    role_id: roleAdmin.id,
-  });
+  const project = await createProjectMock(user);
 
   const response = await client.post('invites')
     .loginVia(user)
@@ -70,16 +63,7 @@ test('should fail when trying to create an invitation for yourself', async ({ as
     verification_code: null,
   });
 
-  const project = await user.myProjects().create({
-    title: 'Test',
-  });
-
-  const roleAdmin = await Role.findBy('slug', 'admin');
-
-  await project.roleUserProjects().create({
-    user_id: user.id,
-    role_id: roleAdmin.id,
-  });
+  const project = await createProjectMock(user);
 
   const response = await client.post('invites')
     .loginVia(user)

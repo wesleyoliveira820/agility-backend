@@ -8,6 +8,7 @@ const providers = [
   '@rocketseat/adonis-bull/providers/Bull',
   '@adonisjs/mail/providers/MailProvider',
   '@adonisjs/framework/providers/ViewProvider',
+  '@adonisjs/websocket/providers/WsProvider',
 ];
 
 const aceProviders = [
